@@ -1,7 +1,7 @@
 # Fuel Consumption Analysis: A Methodical Investigation
 
 ## Executive Summary
-This Jupyter notebook, "Fuel.ipynb", systematically examines Canadian vehicle fuel consumption data to establish predictive relationships between mechanical specifications and CO2 emissions. Through rigorous data exploration, feature engineering, and statistical visualization, it lays the analytical foundation for regression modeling. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/329037069/1b8ff863-04ca-4cfd-a458-634a06bcb13e/Fuel.ipynb)
+This Jupyter notebook, "Fuel.ipynb", systematically examines Canadian vehicle fuel consumption data to establish predictive relationships between mechanical specifications and CO2 emissions. Through rigorous data exploration, feature engineering, and statistical visualization, it lays the analytical foundation for regression modeling.
 
 ## The Dataset: A Comprehensive Vehicle Registry
 The investigation commences with the importation of "FuelConsumption.csv", comprising 1,067 observations across 13 variables documenting real-world vehicle performance:
@@ -10,7 +10,7 @@ The investigation commences with the importation of "FuelConsumption.csv", compr
 MODELYEAR | MAKE | MODEL | VEHICLECLASS | ENGINESIZE | CYLINDERS | TRANSMISSION | FUELTYPE | FUELCONSUMPTION_CITY/HWY/COMB (L/100km & MPG) | CO2EMISSIONS (g/km)
 ```
 
-**Initial reconnaissance** via `fuel.head()` reveals telling contrasts within the Acura portfolio: the ILX Hybrid achieves 136 g/km CO2 emissions (5.9 L/100km combined), while the MDX 4WD registers 255 g/km (11.1 L/100km), establishing engine configuration as a primary emissions determinant. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/329037069/1b8ff863-04ca-4cfd-a458-634a06bcb13e/Fuel.ipynb)
+**Initial reconnaissance** via `fuel.head()` reveals telling contrasts within the Acura portfolio: the ILX Hybrid achieves 136 g/km CO2 emissions (5.9 L/100km combined), while the MDX 4WD registers 255 g/km (11.1 L/100km), establishing engine configuration as a primary emissions determinant. 
 
 ## Analytical Framework: Feature Selection Rationale
 The methodology strategically isolates four predictor variables proven to correlate with emissions:
@@ -39,12 +39,11 @@ fuelsubset.hist(figsize=(10,10), bins=30, color='purple', grid=False)
 1. **CYLINDERS**: Discrete clustering (4, 6, 8 predominant)
 2. **ENGINESIZE**: Right skew peaking <4.0L  
 3. **FUELCONSUMPTIONCOMB**: Modal around 8.5 L/100km
-4. **CO2EMISSIONS**: Concentrated 150-250 g/km range [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/329037069/1b8ff863-04ca-4cfd-a458-634a06bcb13e/Fuel.ipynb)
-
+4. **CO2EMISSIONS**: Concentrated 150-250 g/km range
 **Transformation strategy**:
 - **Logarithmic**: Optimal for strictly positive values
 - **Square root**: Complementary positive-only transform
-- **Sine**: Universal applicability across value domains [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/329037069/1b8ff863-04ca-4cfd-a458-634a06bcb13e/Fuel.ipynb)
+- **Sine**: Universal applicability across value domains 
 
 **Density plots** validate post-transformation normality, essential for subsequent linear modeling assumptions.
 
@@ -52,7 +51,7 @@ fuelsubset.hist(figsize=(10,10), bins=30, color='purple', grid=False)
 The notebook employs publication-quality graphics:
 - **Histograms**: 30-bin purple bars, 10×10 figure grid
 - **Density curves**: Continuous probability distributions
-- **Execution**: 67 cells processed, ensuring reproducible results [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/329037069/1b8ff863-04ca-4cfd-a458-634a06bcb13e/Fuel.ipynb)
+- **Execution**: 67 cells processed, ensuring reproducible results 
 
 ## Strategic Objective: Emissions Prediction Pipeline
 This preprocessing pipeline positions the analyst to deploy multiple linear regression, enabling CO2 forecasting from vehicle specifications. Applications span regulatory compliance, fleet optimization, and consumer decision support.
